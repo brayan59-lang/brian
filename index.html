@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol de Fibonacci Simple</title>
+    <!-- Aquí linqueamos el archivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Crecimiento del Árbol</h1>
+    <p>Cada nivel sigue la secuencia: 1, 1, 2, 3, 5, 8...</p>
+    
+    <div class="controles">
+        <button onclick="crecer()">Añadir Nivel</button>
+        <button onclick="location.reload()">Reiniciar</button>
+    </div>
+
+    <div id="bosque">
+        <div class="nivel">Nivel 1: <span class="rama">🌿</span> (1 rama)</div>
+    </div>
+
+    <script>
+        let penultimo = 0;
+        let ultimo = 1;
+        let nivelActual = 1;
+
+        function crecer() {
+            nivelActual++;
+            let nuevasRamas = penultimo + ultimo;
+            penultimo = ultimo;
+            ultimo = nuevasRamas;
+
+            const contenedor = document.getElementById('bosque');
+            const divNivel = document.createElement('div');
+            divNivel.className = 'nivel';
+            
+            let emojis = "🌿".repeat(nuevasRamas);
+            
+            divNivel.innerHTML = `Nivel ${nivelActual}: <span class="rama">${emojis}</span> (${nuevasRamas} ramas)`;
+            contenedor.appendChild(divNivel);
+        }
+    </script>
+</body>
+</html>

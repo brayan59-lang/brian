@@ -1,0 +1,38 @@
+/* Estilos para el Árbol de Fibonacci */
+body { 
+    font-family: sans-serif; 
+    text-align: center; 
+    background-color: #f0fdf4; 
+    margin: 0;
+    padding: 20px;
+}
+
+.nivel { 
+    background: white; 
+    margin: 10px auto; 
+    padding: 10px; 
+    border-radius: 8px; 
+    width: fit-content;
+    border: 1px solid #c3e6cb;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.rama { 
+    color: #2e7d32; 
+    font-weight: bold; 
+    font-size: 20px; 
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #2e7d32;
+    background-color: #ffffff;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #dcfce7;
+}
