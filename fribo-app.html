@@ -17,34 +17,34 @@
         <section id="introduccion">
             <h2>1. Introducción</h2>
             <p>
-                Esta herramienta interactiva, diseñada con <strong>HTML5, CSS3 y JavaScript</strong>, visualiza de forma dinámica el crecimiento de un "árbol" basado en la famosa sucesión de Fibonacci[cite: 5]. La aplicación permite transformar conceptos matemáticos abstractos en una experiencia visual mediante la manipulación del DOM[cite: 6, 29].
+                Esta herramienta interactiva, diseñada con <strong>HTML5, CSS3 y JavaScript</strong>, visualiza de forma dinámica el crecimiento de un "árbol" basado en la famosa sucesión de Fibonacci. La aplicación permite transformar conceptos matemáticos abstractos en una experiencia visual mediante la manipulación del DOM.
             </p>
         </section>
 
         <section id="matematicas">
             <h2>2. Fundamento Matemático</h2>
             <p>
-                La sucesión de Fibonacci es una secuencia infinita donde cada término es la suma de los dos anteriores[cite: 8]. Se define mediante la siguiente relación de recurrencia[cite: 9]:
+                La sucesión de Fibonacci es una secuencia infinita donde cada término es la suma de los dos anteriores[cite: 3]. Se define mediante la siguiente relación de recurrencia[cite: 3]:
             </p>
             <div class="formula">
                 <strong>F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub></strong>
             </div>
-            <p>Con los valores iniciales establecidos en la documentación[cite: 10]:</p>
+            <p>Con los valores iniciales establecidos en la documentación[cite: 3]:</p>
             <ul>
-                <li><strong>F<sub>0</sub> = 0</strong> [cite: 11]</li>
-                <li><strong>F<sub>1</sub> = 1</strong> [cite: 12]</li>
+                <li><strong>F<sub>0</sub> = 0</strong>[cite: 3]</li>
+                <li><strong>F<sub>1</sub> = 1</strong>[cite: 3]</li>
             </ul>
         </section>
 
         <section id="interaccion">
             <h2>3. Lógica del Sistema</h2>
             <p>
-                El núcleo del sistema reside en la función <code>crecer()</code>, la cual ejecuta los siguientes pasos técnicos[cite: 23]:
+                El núcleo del sistema reside en la función <code>crecer()</code>, la cual ejecuta los siguientes pasos técnicos[cite: 3]:
             </p>
             <ol>
-                <li><strong>Cálculo:</strong> Suma de las variables <em>penultimo</em> y <em>ultimo</em>[cite: 24].</li>
-                <li><strong>Manipulación del DOM:</strong> Creación dinámica de elementos <code>div</code> con la clase <code>nivel</code>[cite: 25, 26].</li>
-                <li><strong>Renderización:</strong> Uso del método <code>repeat(n)</code> para generar la cadena de emojis representativos[cite: 27].</li>
+                <li><strong>Cálculo:</strong> Suma de las variables <em>penultimo</em> y <em>ultimo</em>[cite: 3].</li>
+                <li><strong>Manipulación del DOM:</strong> Creación dinámica de elementos <code>div</code> con la clase <code>nivel</code>[cite: 3].</li>
+                <li><strong>Renderización:</strong> Uso del método <code>repeat(n)</code> para generar la cadena de emojis representativos[cite: 3].</li>
             </ol>
         </section>
 
@@ -52,58 +52,20 @@
 
         <section id="app">
             <h2>Simulador Interactivo</h2>
-            <p>Haz clic en el botón para generar nuevos niveles de vegetación dinámicamente[cite: 6].</p>
+            <p>Haz clic en el botón para generar nuevos niveles de vegetación dinámicamente[cite: 3].</p>
             
-            <button onclick="crecer()">Generar Nuevo Nivel 🌿</button>
+            <!-- El botón ahora no tendrá funcionalidad ya que se eliminó el script -->
+            <button>Generar Nuevo Nivel 🌿</button>
 
             <div id="bosque">
-                </div>
+                <!-- Los niveles se generarían aquí mediante JavaScript -->
+            </div>
         </section>
     </main>
 
     <footer>
         <p><em>"La matemática es el alfabeto con el cual Dios ha escrito el universo" - Galileo Galilei</em></p>
     </footer>
-
-    <script>
-        // Variables globales según el documento técnico
-        let penultimo = 0; 
-        let ultimo = 1;    
-        let inicializado = false;
-
-        function crecer() {
-            const contenedor = document.getElementById('bosque');
-            let actual;
-
-            if (!inicializado) {
-                actual = penultimo;
-                inicializado = true;
-            } else if (ultimo === 1 && penultimo === 0) {
-                actual = 1;
-                penultimo = 1;
-            } else {
-                actual = penultimo + ultimo;
-                penultimo = ultimo;
-                ultimo = actual;
-            }
-
-            // Crear elementos según la especificación técnica [cite: 26]
-            const divNivel = document.createElement('div');
-            divNivel.className = 'nivel';
-
-            const numEmojis = Math.min(actual, 100);
-            const cadenaEmojis = "🌿".repeat(numEmojis); // Método repeat(n) [cite: 27]
-
-            divNivel.innerHTML = `
-                <span class="rama">F<sub>n</sub> = ${actual}</span>
-                <div class="hojas">${actual > 0 ? cadenaEmojis : "🌱"}</div>
-            `;
-
-            contenedor.appendChild(divNivel); // Uso de appendChild() [cite: 27]
-        }
-
-        window.onload = crecer;
-    </script>
 
 </body>
 </html>
